@@ -1,2 +1,3 @@
 # Pr4AI
-KAIST GSAI AI504_Edward Choi
+KAIST GSAI AI504
+Instructor: Edward Choi
