@@ -34,8 +34,8 @@
       "source": [
         "**Q & A**\n",
         "- y_pred = pred_probab.argmax(1)\n",
-        "- nn.Softmax()\n",
-        "- pred_probab = nn.Softmax(logtis)\n",
+        "- nn.Softmax(dim=n): the elements along the axis n become sum-to-1 \n",
+        "- pred_probab = nn.Softmax(logits)\n",
         "- nn.Flatten()\n",
         "- for name, param in model.named_parameters():\n",
         "    What's in 'param'?"
@@ -116,11 +116,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "VAkosJLVKTxi",
-        "outputId": "d3a34298-1443-4cf6-cd37-29baa8dcdaad",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "VAkosJLVKTxi",
+        "outputId": "d3a34298-1443-4cf6-cd37-29baa8dcdaad"
       },
       "source": [
         "device = 'cuda' if torch.cuda.is_available() else 'cpu'\n",
@@ -192,11 +192,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "7Ux-FbzfKTxp",
-        "outputId": "e3cd1afd-28bb-45de-e5d0-eb0d9f253672",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "7Ux-FbzfKTxp",
+        "outputId": "e3cd1afd-28bb-45de-e5d0-eb0d9f253672"
       },
       "source": [
         "model = NeuralNetwork().to(device)\n",
@@ -241,11 +241,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "UBsmnLr9KTxu",
-        "outputId": "22587012-d344-49a7-8fa3-3f291d17aa2d",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "UBsmnLr9KTxu",
+        "outputId": "22587012-d344-49a7-8fa3-3f291d17aa2d"
       },
       "source": [
         "X = torch.rand(1, 28, 28, device=device)\n",
@@ -275,11 +275,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "Mq9RRsvIL-02",
-        "outputId": "d736b7d7-6e8a-4786-f348-9261c016db11",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "Mq9RRsvIL-02",
+        "outputId": "d736b7d7-6e8a-4786-f348-9261c016db11"
       },
       "source": [
         "print(torch.rand(1,28,28).shape)"
@@ -324,11 +324,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "3_9y2Tv6KTxx",
-        "outputId": "41a9e45a-910e-4f88-c095-82e5403c1272",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "3_9y2Tv6KTxx",
+        "outputId": "41a9e45a-910e-4f88-c095-82e5403c1272"
       },
       "source": [
         "input_image = torch.rand(3,28,28)\n",
@@ -362,11 +362,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "-KiyMP0aKTxz",
-        "outputId": "8b099a27-43f1-493b-defd-9e8670a21284",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "-KiyMP0aKTxz",
+        "outputId": "8b099a27-43f1-493b-defd-9e8670a21284"
       },
       "source": [
         "flatten = nn.Flatten()\n",
@@ -401,11 +401,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "hjkkGr2pKTx2",
-        "outputId": "be220450-e589-4daf-e3c7-fd6170eb7c9c",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "hjkkGr2pKTx2",
+        "outputId": "be220450-e589-4daf-e3c7-fd6170eb7c9c"
       },
       "source": [
         "layer1 = nn.Linear(in_features=28*28, out_features=20)\n",
@@ -453,11 +453,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "1hUBlRuyKTx4",
-        "outputId": "7ba74d0c-dca7-4a53-8e0d-4b50ae030602",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "1hUBlRuyKTx4",
+        "outputId": "7ba74d0c-dca7-4a53-8e0d-4b50ae030602"
       },
       "source": [
         "print(f\"Before ReLU: {hidden1}\\n\\n\")\n",
@@ -544,11 +544,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "nti6-6YrKTx9",
-        "outputId": "e3323b32-20d4-4987-f50e-d9e735ee8c37",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "nti6-6YrKTx9",
+        "outputId": "e3323b32-20d4-4987-f50e-d9e735ee8c37"
       },
       "source": [
         "softmax = nn.Softmax(dim=1)\n",
@@ -594,11 +594,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "5VcwcYHbKTx-",
-        "outputId": "009c4227-4ed1-41f8-a0bd-3a5e9db936f8",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "5VcwcYHbKTx-",
+        "outputId": "009c4227-4ed1-41f8-a0bd-3a5e9db936f8"
       },
       "source": [
         "print(\"Model structure: \", model, \"\\n\\n\")\n",
@@ -650,11 +650,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "pvwVgG4KREky",
-        "outputId": "2d999af6-7135-41eb-dbad-77a45e510f35",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "pvwVgG4KREky",
+        "outputId": "2d999af6-7135-41eb-dbad-77a45e510f35"
       },
       "source": [
         "model.parameters"
@@ -688,16 +688,16 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "GFYJptPEROaO",
-        "outputId": "a1c4b305-aa50-4e58-daee-9775e4f68710",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "GFYJptPEROaO",
+        "outputId": "45ecc126-fc92-4ec2-9662-da2b52ab80a9"
       },
       "source": [
         "model.named_parameters"
       ],
-      "execution_count": 60,
+      "execution_count": 68,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -719,7 +719,36 @@
           "metadata": {
             "tags": []
           },
-          "execution_count": 60
+          "execution_count": 68
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Xhaij4d-T1Uc",
+        "outputId": "d8ee361e-1e64-4840-f8d2-32d7d418cbdf",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "X= torch.rand(2,3)\n",
+        "print(X)\n",
+        "X = nn.Softmax(dim=0)(X)\n",
+        "print(X, torch.sum(X))"
+      ],
+      "execution_count": 74,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "tensor([[0.0738, 0.4291, 0.0986],\n",
+            "        [0.9863, 0.1861, 0.5824]])\n",
+            "tensor([[0.2865, 0.5605, 0.3813],\n",
+            "        [0.7135, 0.4395, 0.6187]]) tensor(3.)\n"
+          ],
+          "name": "stdout"
         }
       ]
     },
